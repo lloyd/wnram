@@ -1,4 +1,4 @@
-package goramwordnet
+package wnram
 
 import (
 	"bufio"
