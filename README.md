@@ -20,6 +20,10 @@ seconds on a modest laptop.
 * Iteration of the database
 * Lemmatization
 
+## Missing features
+
+* Morphology - specifically generating a lemma from input text
+
 ## Example Usage
 
 ```golang

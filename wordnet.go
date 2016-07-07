@@ -22,7 +22,7 @@ type index struct {
 	sense uint8
 }
 
-// A single word which was looked up in the wordnet database
+// The results of a search against the wordnet database
 type Lookup struct {
 	word    string   // the word the user searched for
 	cluster *cluster // the discoverd synonym set
@@ -56,6 +56,7 @@ type cluster struct {
 // Parts of speech
 type PartOfSpeech uint8
 
+// A set of multiple parts of speech
 type PartOfSpeechList []PartOfSpeech
 
 func (l PartOfSpeechList) Empty() bool {
