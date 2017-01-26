@@ -151,6 +151,11 @@ func (w *Lookup) Lemma() string {
 	return w.cluster.words[0].word
 }
 
+// A description of this meaning
+func (w *Lookup) Gloss() string {
+	return w.cluster.gloss
+}
+
 func (w *Lookup) DumpStr() string {
 	s := fmt.Sprintf("Word: %s\n", w.String())
 	s += fmt.Sprintf("Synonyms: ")
