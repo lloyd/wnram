@@ -27,22 +27,29 @@ seconds on a modest laptop.
 ## Example Usage
 
 ```golang
-import (
-    "log"
+package main
 
-    "github.com/lloyd/wnram"
+import (
+	"log"
+
+	"github.com/lloyd/wnram"
 )
 
 func main() {
-    wn := wnram.New("./path")
-    // lookup "yummy"
-    if found, err := wn.Lookup(Criteria{Matching: "yummy", POS: []PartOfSpeech{Adjective}}); err != nil {
-       log.Fatal("%s", err)
-    } else {
-       // dump details about each matching term to console
-       for _, f := range found {
-           f.Dump()
-       }
+	wn, err := wnram.New("./data_path")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// lookup "yummy"
+	found, err := wn.Lookup(wnram.Criteria{Matching: "yummy", POS: []wnram.PartOfSpeech{wnram.Adjective}})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// dump details about each matching term to console
+	for _, f := range found {
+		f.Dump()
 	}
 }
 ```
