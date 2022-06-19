@@ -184,6 +184,10 @@ func (w *Lookup) Synonyms() (synonyms []string) {
 	return synonyms
 }
 
+func (w *Lookup) NumRelations() int {
+	return len(w.cluster.relations)
+}
+
 // Get words related to this word.  r is a bitfield of relation types
 // to include
 func (w *Lookup) Related(r Relation) (relationships []Lookup) {
