@@ -303,12 +303,12 @@ func parseLine(data []byte, line, offset int64) (*parsed, error) {
 	for ; wordcount > 0; wordcount-- {
 		value, err := l.lexWord()
 		if err != nil {
-			return nil, fmt.Errorf("word expected: %s")
+			return nil, fmt.Errorf("word expected on line %d", line)
 		}
 		// XXX: handle syntactic markers
 		sense, err := l.lexHexNumber()
 		if err != nil {
-			return nil, fmt.Errorf("sense id expected: %s")
+			return nil, fmt.Errorf("sense id expected on line %d", line)
 		}
 		p.words = append(p.words, word{
 			word:  value,

@@ -245,7 +245,7 @@ func New(dir string) (*Handle, error) {
 		err = inPlaceReadLineFromPath(filename, func(data []byte, line, offset int64) error {
 			cnt++
 			if p, err := parseLine(data, line, offset); err != nil {
-				return fmt.Errorf("%s:%d: %s", err)
+				return fmt.Errorf("%s:%d: %v", data, line, err)
 			} else if p != nil {
 				// first, let's identify the cluster
 				index := ix{p.byteOffset, p.pos}
